@@ -1,0 +1,192 @@
+*,::after,::before{
+    box-sizing: border-box;
+}
+body{
+    background: #DBDBDC;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 80px;
+    padding-inline: 5%;
+}
+.Nav{
+    background: black;
+    position: fixed;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    left: 0;
+    padding-inline: 2%;
+}
+h3{
+    cursor: pointer;
+    transition: .15s;
+}
+h3:hover{
+    color: rgba(255, 255, 255, 0.5);
+}
+.Nav button {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: normal;
+    transition: .15s;
+}
+.Nav button:hover{
+    color: rgba(255, 255, 255, 0.5);
+}
+.initialState{
+    color: red;
+    background: white;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    padding: 2%;
+    border-radius: 10px;
+    text-align: center;
+}
+.loging,.SignIn{
+    background: white;
+    height: 70dvh;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+    position: relative;
+}
+span{
+    color: blue;
+    cursor: pointer;
+}
+i {
+    color: rgba(0, 136, 248, 0.986);
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+
+}
+button{
+    background: black;
+    width:150px;
+    height: 40px;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+}
+.gmail, input{
+    height: 50px;
+    width: 80%;
+    background: transparent;
+    border-radius: 5px;
+    border: 1px solid gray;
+    color: black;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.namechild{
+    margin-inline: 5%;
+}
+.pic{
+    height: 20px;
+    width: 20px;
+    background: url(../media/Google.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-inline: 3%;
+}
+.or{
+    position: relative;
+}
+.or::after,.or::before{
+    content: '';
+    width: 100px;
+    height: 1px;
+    background: gray;
+    position: absolute;
+    top: 50%;
+}
+.or::before{
+    right: 30px;
+}
+.or::after{
+    left: 30px;
+}
+
+.LogOut{
+    background: white;
+    height: 300px;
+    width: 500px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    animation: move .25s ease-in-out forwards;
+}
+@keyframes move{
+    from {
+        scale: 0.5;
+    }to{
+        scale: 1;
+        box-shadow: 5px 5px 20px black;
+    }
+}
+.LogOut button{
+    background: transparent;
+    color: blue;
+    border: none; 
+    width: auto;
+    height: auto;
+    margin: 10%;
+}
+.logout-btns{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 500px;
+    height: 350px;
+    border-radius: 15px;
+    margin: 1%;
+}
+.Data{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1%;
+}
+@media (max-width:1000px){
+    img{
+        width: 300px;
+        height: 200px;
+    }
+}
+@media (max-width:650px){
+    img{
+        width: 350px;
+        height: 210px;
+    }
+    .Data{
+        grid-template-columns: 1fr;
+    }
+}
