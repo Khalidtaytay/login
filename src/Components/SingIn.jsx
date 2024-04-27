@@ -25,7 +25,7 @@ export default function SignIn ({signIn,setSignIn}){
     return(
         <div className="SignIn">
            <i onClick={()=>{setSignIn(false)}} class="fa-regular fa-circle-left"></i>
-           
+           <p>Sign uo Now to join our community</p>
            <div className="name">
              <input type="text" placeholder='Your first name' className="namechild" />
              <input type="text" placeholder='Your last name' className="namechild" />

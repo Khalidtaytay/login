@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../App.css';
 import SignIn from './SingIn';
 import {Auth,Google} from './Firebase'
-import{signInWithEmailAndPassword,signInWithPopup} from 'firebase/auth';
+import{signInWithEmailAndPassword,signInWithPopup,signInWithRedirect} from 'firebase/auth';
 
 export function Login({signIn,setSignIn}){
     const [email,setEmail]=useState("");
@@ -29,7 +29,11 @@ export function Login({signIn,setSignIn}){
             alert("You loged In successfully");
             refresh();
         }catch(err){
-            alert('An error occurred during google log In.')
+            try{
+                await signInWithRedirect(Auth,Google);
+            }catch(err){        
+                alert('An error occurred during google log In.')
+            }
         }
     }
 
