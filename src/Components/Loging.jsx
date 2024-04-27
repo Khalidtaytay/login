@@ -21,22 +21,20 @@ export function Login({signIn,setSignIn}){
             alert("An error occurred during log In. Please log in again.")
         }
     }
-
-    // Log in with Google
-    async function logInWithGoogle(){
-        try{
-            await signInWithPopup(Auth,Google);
+    const mediaQueryList = window.matchMedia('(max-width: 800px)');
+    async function logInWithGoogle() {
+        try {
+            if (!mediaQueryList.matches) {
+                await signInWithPopup(Auth, Google);
+            } else {
+                await signInWithRedirect(Auth, Google);
+            }
             alert("You loged In successfully");
             refresh();
-        }catch(err){
-            try{
-                await signInWithRedirect(Auth,Google);
-            }catch(err){        
-                alert('An error occurred during google log In.')
-            }
+        } catch (err) {
+            alert('An error occurred during google log In.');
         }
     }
-
     return (
         <div className="loging">
           <button className="gmail" onClick={logInWithGoogle}><div className='pic'></div>Login with Google</button>
