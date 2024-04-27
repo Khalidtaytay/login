@@ -10,6 +10,7 @@ function App() {
   const [showLoginOut,setShowLogingOut]=useState(false);
   const [showLogStatut,setShowLogStatut]=useState(true);
   const [showData,setShowData]=useState([]);
+  const [Img,setImg]=useState(false);
 
 
   const getDataList = collection(Data,"Data");
@@ -37,15 +38,22 @@ function App() {
      </div>
      {showLoginOut&&<LogOut setShowLogingOut={setShowLogingOut}/>}
      
-     <div className='Data'>
+     
         {Auth?.currentUser?.uid ? (
-            showData.map((data) => (
-              <img src={data.URL} alt="" />
-            ))
+           <div className='Data'>
+              {showData.map((data) => (
+                <img onClick={()=>{return(setImg(data))}} src={data.URL} alt="" />
+              ))}
+           </div>
         ) : (
           showLogin ? <Loging /> : <p className='initialState'>To access the content on this page, please sign in to your account. If you don't have an account yet, you can create one to get started.</p>
         )}
-    </div>
+        {Img&&<div className='ShowImg'>
+        <i class="fa-solid fa-arrow-left" onClick={()=>setImg(false)}></i>
+        <i class="fa-solid fa-xmark" onClick={()=>setImg(false)}></i>
+          <img id='Img' src={Img.URL} alt="" />
+          </div>}
+ 
    
    
     </>
